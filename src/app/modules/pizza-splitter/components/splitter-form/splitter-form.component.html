@@ -1,0 +1,25 @@
+<h1 *ngIf="numberOfPizzas$ | async">
+  number of pizzas needed: {{ numberOfPizzas$ | async }}
+</h1>
+<form [formGroup]="splitterForm">
+  <div>
+    <label>Number of People:</label>
+    <input type="number" formControlName="numberOfPeople" />
+  </div>
+
+  <div>
+    <label>Slices per Pizza:</label>
+    <input type="number" formControlName="slicesPerPizza" />
+  </div>
+
+  <div>
+    <label>Pieces per Pizza:</label>
+    <input type="number" formControlName="piecesPerPizza" />
+  </div>
+
+  <div>
+    <button (click)="onSubmit()" [disabled]="!(isFormValid$ | async)">
+      Calculate
+    </button>
+  </div>
+</form>
